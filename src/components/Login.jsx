@@ -6,7 +6,7 @@ const Login = (props) => {
       <Content>
         <CTA>
           <CTALogoOne
-            src='src/assets/images/cta-logo-one.svg'
+            src='/assets/images/cta-logo-one.svg'
             alt='upper logo'
           />
           <SignUp>GET ALL THERE</SignUp>
@@ -16,7 +16,7 @@ const Login = (props) => {
             and The Disney Bundle will increase by £1.
           </Description>
           <CTALogoTwo
-            src='src/assets/images/cta-logo-two.png'
+            src='/assets/images/cta-logo-two.png'
             alt='lower logo'
           />
         </CTA>
@@ -49,7 +49,7 @@ const Content = styled.div`
 `;
 
 const BgImage = styled.div`
-  background-image: url('src/assets/images/login-background.jpg');
+  background-image: url('/assets/images/login-background.jpg');
   height: 100%;
   z-index: -1;
   position: absolute;

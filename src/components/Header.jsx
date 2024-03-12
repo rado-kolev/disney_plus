@@ -5,14 +5,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import {
   selectUserName,
-  selectUserEmail,
   selectUserPhoto,
   setUserLoginDetails,
   setSignOutState,
 } from '../features/user/userSlice';
 import { useEffect } from 'react';
 
-const Header = (props) => {
+const Header = () => {
   const dispatch = useDispatch();
   const history = useNavigate();
   const username = useSelector(selectUserName);
@@ -62,7 +61,7 @@ const Header = (props) => {
   return (
     <Nav>
       <Logo>
-        <img src='src/assets/images/logo.svg' alt='Disney+' />
+        <img src='/assets/images/logo.svg' alt='Disney+' />
       </Logo>
 
       {!username ? (
@@ -71,27 +70,27 @@ const Header = (props) => {
         <>
           <NavMenu>
             <a href='/home'>
-              <img src='src/assets/images/home-icon.svg' alt='HOME' />
+              <img src='/assets/images/home-icon.svg' alt='HOME' />
               <span>HOME</span>
             </a>
             <a>
-              <img src='src/assets/images/search-icon.svg' alt='SEARCH' />
+              <img src='/assets/images/search-icon.svg' alt='SEARCH' />
               <span>SEARCH</span>
             </a>
             <a>
-              <img src='src/assets/images/watchlist-icon.svg' alt='WATCHLIST' />
+              <img src='/assets/images/watchlist-icon.svg' alt='WATCHLIST' />
               <span>WATCHLIST</span>
             </a>
             <a>
-              <img src='src/assets/images/original-icon.svg' alt='ORIGINALS' />
+              <img src='/assets/images/original-icon.svg' alt='ORIGINALS' />
               <span>ORIGINALS</span>
             </a>
             <a>
-              <img src='src/assets/images/movie-icon.svg' alt='MOVIE' />
+              <img src='/assets/images/movie-icon.svg' alt='MOVIE' />
               <span>MOVIE</span>
             </a>
             <a>
-              <img src='src/assets/images/series-icon.svg' alt='SERIES' />
+              <img src='/assets/images/series-icon.svg' alt='SERIES' />
               <span>SERIES</span>
             </a>
           </NavMenu>
@@ -198,10 +197,10 @@ const NavMenu = styled.div`
     }
   }
 
-  //  !!! To uncomment the media query below
-  // @media (max-width: 768px) {
-  //   display: none;
-  // }
+  
+  @media (max-width: 992px) {
+    display: none;
+  }
 `;
 
 const Login = styled.a`

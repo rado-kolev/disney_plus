@@ -23,7 +23,7 @@ const Home = (props) => {
   const colRef = collection(db, 'movies');
 
   useEffect(() => {
-    onSnapshot(colRef, (snapshot) => {
+    const unsubscribe = onSnapshot(colRef, (snapshot) => {
       snapshot.docs.map((doc) => {
         switch (doc.data().type) {
           case 'recommend':
@@ -53,7 +53,11 @@ const Home = (props) => {
         })
       );
     });
+
+    // Cleanup function
+    return () => unsubscribe();
   }, [username]);
+
   
 
   return (
@@ -77,7 +81,7 @@ const Container = styled.main`
   padding: 0 calc(3.5vw + 5px);
 
   &:after {
-    background: url(src/assets/images/home-background.png) center center no-repeat fixed;
+    background: url(/assets/images/home-background.png) center center no-repeat fixed;
     content: '';
     position: absolute;
     inset: 0;

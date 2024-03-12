@@ -2,26 +2,37 @@ import styled from 'styled-components';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import db from '../firebase';
+import { collection, getDocs } from 'firebase/firestore';
 
-const Detail = (props) => {
+const Detail = () => {
   const { id } = useParams();
   const [detailData, setDetailData] = useState({});
 
+  const movieRef = collection(db, 'movies');
+
   useEffect(() => {
-    db.collection('movies')
-      .doc(id)
-      .get()
-      .then((doc) => {
-        if (doc.exists) {
-          setDetailData(doc.data());
-        } else {
-          console.log('no such document in firebase 🔥');
+    const getMovieList = async () => {
+      try {
+        const data = await getDocs(movieRef);
+        let found = false;
+
+        data.docs.forEach((doc) => {
+          if (doc.exists && doc.id === id) {
+            setDetailData(doc.data());
+            found = true;
+          }
+        });
+
+        if (!found) {
+          console.log('No such document in Firebase.');
         }
-      })
-      .catch((error) => {
-        console.log('Error getting document:', error);
-      });
+      } catch (error) {
+        console.log('Error getting document: ', error);
+      }
+    };
+    getMovieList();
   }, [id]);
+
   return (
     <Container>
       <Background>
@@ -34,11 +45,11 @@ const Detail = (props) => {
       <ContentMeta>
         <Controls>
           <Player>
-            <img src='/images/play-icon-black.png' alt='' />
+            <img src='/assets/images/play-icon-black.png' alt='' />
             <span>Play</span>
           </Player>
           <Trailer>
-            <img src='/images/play-icon-white.png' alt='' />
+            <img src='/assets/images/play-icon-white.png' alt='' />
             <span>Trailer</span>
           </Trailer>
           <AddList>
@@ -47,7 +58,7 @@ const Detail = (props) => {
           </AddList>
           <GroupWatch>
             <div>
-              <img src='/images/group-icon.png' alt='' />
+              <img src='/assets/images/group-icon.png' alt='' />
             </div>
           </GroupWatch>
         </Controls>
@@ -56,7 +67,7 @@ const Detail = (props) => {
       </ContentMeta>
     </Container>
   );
-}
+};
 
 const Container = styled.div`
   position: relative;
@@ -156,6 +167,10 @@ const Trailer = styled(Player)`
   background: rgba(0, 0, 0, 0.3);
   border: 1px solid rgb(249, 249, 249);
   color: rgb(249, 249, 249);
+
+  &:hover {
+    background: rgba(198, 198, 198, 0.5);
+  }
 `;
 
 const AddList = styled.div`
@@ -186,6 +201,10 @@ const AddList = styled.div`
       width: 2px;
     }
   }
+  
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
 
 const GroupWatch = styled.div`
@@ -207,6 +226,10 @@ const GroupWatch = styled.div`
     img {
       width: 100%;
     }
+  }
+
+  &:hover {
+    transform: scale(1.1);
   }
 `;
 
@@ -231,4 +254,4 @@ const Description = styled.div`
   }
 `;
 
-export default Detail
+export default Detail;
