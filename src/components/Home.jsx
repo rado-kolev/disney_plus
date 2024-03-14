@@ -12,7 +12,7 @@ import { setMovies } from '../features/movie/movieSlice';
 import { selectUserName } from '../features/user/userSlice';
 import { collection, onSnapshot } from 'firebase/firestore';
 
-const Home = (props) => {
+const Home = () => {
   const dispatch = useDispatch();
   const username = useSelector(selectUserName);
   let recommend = [];
@@ -74,14 +74,14 @@ const Home = (props) => {
 
 const Container = styled.main`
   position: relative;
-  top: 70px;
+  margin-top: 70px;
   min-height: calc(100vh - 250px);
   overflowx: hidden;
   display: block;
-  padding: 0 calc(3.5vw + 5px);
+  padding: 0 calc(3.5vw + 5px) 40px;
 
   &:after {
-    background: url(/assets/images/home-background.png) center center no-repeat fixed;
+    background: url(/assets/images/home-background.png) center center/cover no-repeat fixed;
     content: '';
     position: absolute;
     inset: 0;

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { selectRecommend } from '../features/movie/movieSlice';
 
-const Recommends = (props) => {
+const Recommends = () => {
   const movies = useSelector(selectRecommend);
 
   return (
@@ -37,6 +37,10 @@ const Content = styled.div`
   @media (max-width: 768px) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  @media (max-width: 576px) {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
 `;
 
 const Wrap = styled.div`
@@ -54,7 +58,7 @@ const Wrap = styled.div`
     inset: 0px;
     display: block;
     height: 100%;
-    object-fit: cover;
+    object-fit: fit;
     opacity: 1;
     position: absolute;
     transition: opacity 500ms ease-in-out 0s;

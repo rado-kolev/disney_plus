@@ -57,9 +57,7 @@ const Detail = () => {
             <span />
           </AddList>
           <GroupWatch>
-            <div>
-              <img src='/assets/images/group-icon.png' alt='' />
-            </div>
+            <img src='/assets/images/group-icon.png' alt='' />
           </GroupWatch>
         </Controls>
         <SubTitle>{detailData.subTitle}</SubTitle>
@@ -71,11 +69,16 @@ const Detail = () => {
 
 const Container = styled.div`
   position: relative;
-  min-height: calc(100vh-250px);
+  // min-height: calc(100vh-250px);
+  height: calc(100vh - 130px);
   overflow-x: hidden;
   display: block;
-  top: 72px;
+  margin-top: 72px;
   padding: 0 calc(3.5vw + 5px);
+
+  @media (max-width: 576px) {
+    height: calc(100vh - 156px);
+  }
 `;
 
 const Background = styled.div`
@@ -89,10 +92,7 @@ const Background = styled.div`
   img {
     width: 100vw;
     height: 100vh;
-
-    @media (max-width: 768px) {
-      width: initial;
-    }
+    object-fit: cover;
   }
 `;
 
@@ -164,12 +164,12 @@ const Player = styled.button`
 `;
 
 const Trailer = styled(Player)`
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.6);
   border: 1px solid rgb(249, 249, 249);
   color: rgb(249, 249, 249);
 
   &:hover {
-    background: rgba(198, 198, 198, 0.5);
+    background: rgba(198, 198, 198, 0.2);
   }
 `;
 
@@ -201,8 +201,9 @@ const AddList = styled.div`
       width: 2px;
     }
   }
-  
+
   &:hover {
+    background-color: rgba(198, 198, 198, 0.2);
     transform: scale(1.1);
   }
 `;
@@ -211,24 +212,20 @@ const GroupWatch = styled.div`
   height: 44px;
   width: 44px;
   border-radius: 50%;
+  border: 2px solid white;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  background: white;
-
-  div {
-    height: 40px;
-    width: 40px;
-    background: rgb(0, 0, 0);
-    border-radius: 50%;
+  background: rgba(0, 0, 0, 0.6);
 
     img {
       width: 100%;
     }
-  }
+  
 
   &:hover {
+    background: rgba(198, 198, 198, 0.2);
     transform: scale(1.1);
   }
 `;

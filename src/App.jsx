@@ -4,6 +4,7 @@ import './App.css';
 import Header from './components/Header';
 import Home from './components/Home';
 import Detail from './components/Detail';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path='/home' element={<Home />} />
           <Route path='/detail/:id' element={<Detail />} />
         </Routes>
+        <Footer />
       </Router>
     </div>
   );
