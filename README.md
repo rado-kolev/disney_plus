@@ -6,7 +6,7 @@
 
 ## Description
 
-A disney+ clone.
+A Disney+ clone.
 
 <br/>
 
