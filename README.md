@@ -1,8 +1,25 @@
-# React + Vite
+# The Shapify Lab
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## [Live Site](https://disney-p1us-c1one.web.app/)
 
-Currently, two official plugins are available:
+<br/>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Description
+
+A disney+ clone.
+
+<br/>
+
+## Screenshot
+
+![Website screenshots](./demo/screenshot-disney-plus.png)
+
+<br/>
+
+## 🛠️ Built with:
+
+![Vite Badge](https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=fff&style=for-the-badge)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Redux Badge](https://img.shields.io/badge/Redux-764ABC?logo=redux&logoColor=fff&style=for-the-badge)
+![styled-components Badge](https://img.shields.io/badge/styled--components-DB7093?logo=styledcomponents&logoColor=fff&style=for-the-badge)
+![Appwrite Badge](https://img.shields.io/badge/Appwrite-FD366E?logo=appwrite&logoColor=fff&style=for-the-badge)
